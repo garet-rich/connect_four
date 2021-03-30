@@ -1,22 +1,15 @@
 class Gameboard
-    @@session_counter = 0
-
-    def initialize(player_Name1, player_Name2)
-        @player_Name1 = player_Name1
-        @player_Name2 = player_Name2
-        @@session_counter += 1
+    def initialize()
 
         #create ID for current game based on player names and the total number of games played
-        setGameID(@player_Name1, @player_Name2)
+        setGameID()
 
         createBoard()
         displayBoard()
-        updateBoard(1,1)
-        displayBoard()
     end
 
-    def setGameID(player_Name1, player_Name2)
-        @gameID = player_Name1 + player_Name2 + @@session_counter.to_s
+    def setGameID()
+        #Test
     end
 
     def createBoard()
@@ -49,4 +42,4 @@ class Gameboard
     end
 end
 
-tester = Gameboard.new("Timmy", "Jimmy")
+tester = Gameboard.new()
