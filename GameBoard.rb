@@ -1,18 +1,11 @@
 class Gameboard
     def initialize()
-
-        #create ID for current game based on player names and the total number of games played
-        setGameID()
-
-        createBoard()
-        displayBoard()
+        create_board()
+        display_board()
+        update_board(0, "x")
     end
 
-    def setGameID()
-        #Test
-    end
-
-    def createBoard()
+    def create_board()
         #creates a standard grid with 7 columns and 6 rows
         @board = [
             [".", ".", ".", ".", ".", ".", "."],
@@ -23,10 +16,10 @@ class Gameboard
             [".", ".", ".", ".", ".", ".", "."],
         ]
     end
-
-    def displayBoard()
+    
+    def display_board()
         #displays column numbers for gameplay
-        puts [1, 2, 3, 4, 5, 6, 7].join(" ")
+        puts ["A", "B", "C", "D", "E", "F", "G"].join(" ")
 
         #iterates through all items, adds lines together with a space
         @board.each do |row|
@@ -34,11 +27,7 @@ class Gameboard
         end
     end
 
-    def updateBoard(move, player)
-        @board.each do |columns|
-            columns.each do |row|
-            end
-        end
+    def update_board(move, player)
     end
 end
 
