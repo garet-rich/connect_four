@@ -1,13 +1,16 @@
-class Gameboard
+class Board
+    attr_accessor :board
+
     def initialize()
-        create_board()
+        @board = create_board()
         display_board()
-        update_board(0, "x")
+
     end
 
     def create_board()
         #creates a standard grid with 7 columns and 6 rows
-        @board = [
+        #Decimals are used to denote blank space
+        board = [
             [".", ".", ".", ".", ".", ".", "."],
             [".", ".", ".", ".", ".", ".", "."],
             [".", ".", ".", ".", ".", ".", "."],
@@ -15,6 +18,8 @@ class Gameboard
             [".", ".", ".", ".", ".", ".", "."],
             [".", ".", ".", ".", ".", ".", "."],
         ]
+
+        return board
     end
     
     def display_board()
@@ -27,8 +32,11 @@ class Gameboard
         end
     end
 
-    def update_board(move, player)
+    def update_board(col, player)
+        col_names = {"A" => 0, "B" => 1, "C" => 2, "D" => 3, "E" => 4, "F" => 5, "G" => 6}
+        column_choice = col_names[col]
     end
 end
 
+tester = Board.new()
 tester = Gameboard.new()
