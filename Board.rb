@@ -39,4 +39,3 @@ class Board
 end
 
 tester = Board.new()
-tester = Gameboard.new()
