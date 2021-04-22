@@ -4,26 +4,19 @@ class Board
     def initialize()
         @board = create_board()
         display_board()
-
+        
     end
 
     def create_board()
-        #creates a standard grid with 7 columns and 6 rows
-        #Decimals are used to denote blank space
-        board = [
-            [".", ".", ".", ".", ".", ".", "."],
-            [".", ".", ".", ".", ".", ".", "."],
-            [".", ".", ".", ".", ".", ".", "."],
-            [".", ".", ".", ".", ".", ".", "."],
-            [".", ".", ".", ".", ".", ".", "."],
-            [".", ".", ".", ".", ".", ".", "."],
-        ]
+        #creates 6 multable arrays of 7 length, standard connect_for gameboard
+        #Decimals are used as blank space
+        board = Array.new(6) {Array.new(7, ".")}
 
         return board
     end
     
     def display_board()
-        #displays column numbers for gameplay
+        #displays column numbers used in gameplay
         puts ["A", "B", "C", "D", "E", "F", "G"].join(" ")
 
         #iterates through all items, adds lines together with a space
@@ -32,11 +25,19 @@ class Board
         end
     end
 
-    def update_board(col, player)
-        col_names = {"A" => 0, "B" => 1, "C" => 2, "D" => 3, "E" => 4, "F" => 5, "G" => 6}
-        column_choice = col_names[col]
+    def update_board(column, player)
+        column_names = {"A" => 0, "B" => 1, "C" => 2, "D" => 3, "E" => 4, "F" => 5, "G" => 6}
+        column_choice = column_names[column]
+
+        @board.each_with_index do |row, row_index|
+            if(@board[row_index][column_choice] != ".")
+                @board[row_index-1][column_choice] = player
+            elsif(row_index = @board.length-1 and @board[row_index][column_choice] == ".")
+                @board[row_index][column_choice] = player
+                break
+            end
+        end
     end
 end
 
 tester = Board.new()
-tester = Gameboard.new()
