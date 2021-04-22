@@ -3,8 +3,6 @@ class Board
 
     def initialize()
         @board = create_board()
-        display_board()
-        
     end
 
     def create_board()
@@ -26,9 +24,11 @@ class Board
     end
 
     def update_board(column, player)
+        #
         column_names = {"A" => 0, "B" => 1, "C" => 2, "D" => 3, "E" => 4, "F" => 5, "G" => 6}
         column_choice = column_names[column]
 
+        #
         @board.each_with_index do |row, row_index|
             if(@board[row_index][column_choice] != ".")
                 @board[row_index-1][column_choice] = player
@@ -37,6 +37,10 @@ class Board
                 break
             end
         end
+    end
+
+    def check_win()
+
     end
 end
 
