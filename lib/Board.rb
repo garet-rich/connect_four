@@ -18,7 +18,7 @@ class Board
 
         #iterates through all items, adds lines together with a space
         @board.each do |row|
-            puts row.each { |column| column}.join(" ")
+            puts row.each { |column| column }.join(" ")
         end
     end
 
@@ -26,7 +26,9 @@ class Board
         #
         column_names = {"A" => 0, "B" => 1, "C" => 2, "D" => 3, "E" => 4, "F" => 5, "G" => 6}
         column_choice = column_names[column]
-            
+        
+        #check_move(move, player)
+
         # @board.each_with_index do |row, row_index|
         #     if(@board[row_index][column_choice] != ".")
         #         @board[row_index-1][column_choice] = player
@@ -37,8 +39,15 @@ class Board
         # end
     end
 
-    def check_move(column, player)
-        if()
+    def check_move(move, player)
+        @board.each_with_index do |row, row_index|
+            if(@board[row_index][move] != "."
+                puts "You have selected a full column, please pick another"
+                return false
+            else
+                return true
+            end
+        end
     end
 
     def check_win()
