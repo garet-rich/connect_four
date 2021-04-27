@@ -20,9 +20,10 @@ class Game
     def player_move()
         puts "Please select a column"
         @move = gets.chomp
+        
         return @move
     end
-
+    
     def computer_move()
         @comp_move = ["A", "B", "C", "D", "E", "F", "G"].sample
         return @comp_move
