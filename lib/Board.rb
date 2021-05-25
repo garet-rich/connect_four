@@ -1,12 +1,13 @@
 class Board
 
+    attr_reader :board
+
     def initialize()
         @board = create_board()
     end
 
     def create_board()
-        board = Array.new(6) {Array.new(7, ".")}
-        return board
+        Array.new(6) {Array.new(7, ".")}
     end
     
     def display_board()
