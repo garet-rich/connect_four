@@ -1,11 +1,9 @@
-require_relative "game"
+class Player
+    attr_reader :name,
+                :token
 
-class player
-    def initialize(player_name)
-        @player_name = player_name
-    end
-
-    def name
-        return @player_name
+    def initialize(name, token)
+        @name = name
+        @token = token
     end
 end
