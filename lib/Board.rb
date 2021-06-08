@@ -1,7 +1,8 @@
 class Board
     attr_reader :board,
                 :length,
-                :width
+                :width,
+                :winner
 
 
     def initialize()
@@ -24,21 +25,16 @@ class Board
 
     def update_board(move, token)
         num = @length-1
-        corrected_move = convert_move(move)
 
-        if(check_move(corrected_move))
+        if(check_move(move))
             loop do
-                if @board[num][corrected_move] == "."
-                    @board[num][corrected_move] = token
+                if @board[num][move] == "."
+                    @board[num][move] = token
                     break
                 else
                     num -= 1
                 end
             end
-        else
-            puts "You have picked a full column, please pick another"
-            new_move = gets.chomp
-            update_board(new_move, token)
         end
     end
 
@@ -70,9 +66,11 @@ class Board
     def check_horizontal()
         @board.each do |row|
             if row.join('').include?("XXXX")
-                p "X has won"
+                @winner = "X"
+                return true
             elsif row.join('').include?("OOOO")
-                p "O has won"
+                @winner = "O"
+                return true
             end
         end
         return false
@@ -86,10 +84,12 @@ class Board
                 column << @board[l_index][w_index]
             end
             if column.join('').include?("XXXX")
-                p "X has won"
+                @winner = "X"
+                return true
                 break
             elsif column.join('').include?("OOOO")
-                p "O has won"
+                @winner = "O"
+                return true
                 break
             end
             column = []
