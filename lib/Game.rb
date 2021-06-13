@@ -1,6 +1,8 @@
 require_relative 'board'
 require_relative 'player'
 
+require 'pry'
+
 class Game
     def initialize()
         p "Welcome to Connect_Some! The game will be played with 7 columns and 6 rows"
@@ -11,7 +13,6 @@ class Game
         p "Hello, #{@player_name}, your token is X"
         p "You are playing against the computer, their token is O"
         p "------------------------------------------------------------------"
-
 
         @player1 = Player.new(@player_name, "X")
         @player2 = Player.new("Computer", "O")

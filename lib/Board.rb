@@ -99,6 +99,13 @@ class Board
     end
 
     def check_diagonal()
+        diagonal = []
+        anti_diagonal = []
+
+        @board.each do |row|
+            
+        end
+
         return false
     end
 end
